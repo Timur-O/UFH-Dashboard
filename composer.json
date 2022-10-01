@@ -1,0 +1,28 @@
+{
+    "require": {
+      "phpmailer/phpmailer": "^6.0",
+      "infinityfree/mofh-client": "^0.7.0",
+      "google/apiclient": "^2.4",
+        "acmephp/core": "^2.0",
+        "acmephp/ssl": "^2.0",
+        "cloudflare/sdk": "dev-master"
+    },
+    "require-dev": {
+      "squizlabs/php_codesniffer": "3.*"
+    },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "git@github.com:Timur-O/cloudflare-php.git"
+      }
+    ],
+  "scripts": {
+    "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+  },
+  "extra": {
+    "google/apiclient-services": [
+      "Oauth2",
+      "Drive"
+    ]
+  }
+}

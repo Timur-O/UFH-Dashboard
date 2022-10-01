@@ -1,0 +1,210 @@
+/* Stacking Tables */
+
+.table-responsive-stack tr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  
+  
+  .table-responsive-stack td,
+  .table-responsive-stack th {
+     display:block;
+  /*      
+     flex-grow | flex-shrink | flex-basis   */
+     -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  }
+  
+  .table-responsive-stack .table-responsive-stack-thead {
+     font-weight: bold;
+  }
+  
+  @media screen and (max-width: 768px) {
+     .table-responsive-stack tr {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        display:block;
+        
+     }
+     /*  IE9 FIX   */
+     .table-responsive-stack td {
+        float: left\9;
+        width:100%;
+     }
+  }
+
+
+/* Custom Button Styles */
+
+.btn-premium {
+    background-color: #bb51ce;
+}
+
+/* Borderless Table */
+
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}
+
+.main-panel {
+    min-height: 100vh !important;
+    height: unset !important;
+}
+
+.content {
+    margin-bottom: 3%;
+}
+
+.displayPasswordInput {
+    border: none;
+    background-color: transparent;
+}
+
+#dashFooter {
+    position: fixed;
+    bottom: 0;
+    width: -webkit-fill-available;
+}
+
+.sidebar {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sidebar-wrapper {
+    height: calc(100vh - 300px) !important;
+}
+
+.copyright-header {
+    font-size: 0.8571em;
+    line-height: 1.8;
+}
+
+@media(min-width: 992px) {
+    .copyright-header {
+        display: none;
+    }
+}
+
+@media(max-width: 992px) {
+    #dashFooter {
+        display: none;
+    }
+}
+
+.display-table {
+    display: table !important;
+}
+
+/** Ads **/
+.banner-funding {
+    display: none;
+    padding: 20px 10px;
+    border-radius: 5px;
+    background: #D30000;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 2% auto;
+}
+
+.leaderad_container > div {
+    display:inline-block !important;
+}
+
+.leaderad_container {
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0 auto 2% auto;
+}
+
+/** Loading Screen CSS **/
+.loading_overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    visibility: hidden;
+    border-radius: 10px;
+    z-index: 1;
+    padding: 8%;
+}
+
+.loading_overlay_modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    visibility: hidden;
+    border-radius: 3px;
+    z-index: 1;
+    padding: 8%;
+}
+
+/** Read-Only Box Display **/
+pre {
+    display: block;
+    font-size: 87.5%;
+    color: #495057;
+    background-color: #e9ecef;
+    opacity: 1;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+}
+
+/** Scrollbar **/
+.sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: #90A4AE #CFD8DC;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #CFD8DC;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #90A4AE;
+    border-radius: 6px;
+    border: 3px solid #CFD8DC;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #90A4AE #CFD8DC;
+}
+
+body::-webkit-scrollbar-track {
+    background: #CFD8DC;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #90A4AE;
+    border-radius: 6px;
+    border: 3px solid #CFD8DC;
+}

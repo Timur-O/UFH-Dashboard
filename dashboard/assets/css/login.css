@@ -1,0 +1,48 @@
+.main-panel {
+    width: 100vw !important;
+    min-height: 100vh !important;
+}
+
+#logo {
+    width: 75%;
+}
+
+.form-check-label {
+    line-height: 23px;
+}
+
+#google_login_button {
+    width: 40%;
+}
+
+@media(max-width: 992px) {
+    #google_login_button {
+        width: 60%;
+    }
+}
+
+/** Ads **/
+
+.banner-funding {
+    display: none;
+    padding: 20px 10px;
+    border-radius: 5px;
+    background: #D30000;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    max-width: 1000px;
+    margin: 2% auto;
+}
+
+.leaderad_container > div {
+    display:inline-block !important;
+}
+
+.leaderad_container {
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 2% auto;
+}
