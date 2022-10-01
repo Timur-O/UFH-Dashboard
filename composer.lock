@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b1ecd0f66142c1f824780743055f343",
+    "content-hash": "f348fdf42db2f5d42acb0fd673424cb3",
     "packages": [
         {
             "name": "acmephp/core",
@@ -138,13 +138,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Timur-O/cloudflare-php.git",
-                "reference": "c12483dfa2aa668db7f4caf4b0ab6fd9746ef0be"
+                "url": "https://github.com/Ultifree-Hosting/Cloudflare-PHP-API.git",
+                "reference": "815db04e4088b5467de2a237744682dfcdcfa367"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Timur-O/cloudflare-php/zipball/c12483dfa2aa668db7f4caf4b0ab6fd9746ef0be",
-                "reference": "c12483dfa2aa668db7f4caf4b0ab6fd9746ef0be",
+                "url": "https://api.github.com/repos/Ultifree-Hosting/Cloudflare-PHP-API/zipball/815db04e4088b5467de2a237744682dfcdcfa367",
+                "reference": "815db04e4088b5467de2a237744682dfcdcfa367",
                 "shasum": ""
             },
             "require": {
@@ -181,9 +181,9 @@
             ],
             "description": "PHP binding for v4 of the Cloudflare Client API.",
             "support": {
-                "source": "https://github.com/Timur-O/cloudflare-php/tree/master"
+                "source": "https://github.com/Ultifree-Hosting/Cloudflare-PHP-API/tree/master"
             },
-            "time": "2022-01-17T20:45:53+00:00"
+            "time": "2022-10-01T11:54:02+00:00"
         },
         {
             "name": "firebase/php-jwt",

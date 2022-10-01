@@ -13,7 +13,7 @@
     "repositories": [
       {
         "type": "vcs",
-        "url": "git@github.com:Timur-O/cloudflare-php.git"
+        "url": "git@github.com:Ultifree-Hosting/Cloudflare-PHP-API.git"
       }
     ],
   "scripts": {
