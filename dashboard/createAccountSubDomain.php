@@ -133,11 +133,10 @@
                                     <div class="col-md-12 col-lg-6">
                                     <label for="extension">Extension:</label>
                                       <select id="extension" name="extension" class="form-control form-control-lg p-1">
-                                          <option value="great-blog.xyz">great-blog.xyz</option>
+                                        <option value="great-blog.xyz" selected>great-blog.xyz</option>
                                         <option value="uf.uk.eu.org">uf.uk.eu.org</option>
                                         <option value="ulti.eu.org">ulti.eu.org</option>
-                                          <option value="ultihost.net">ultihost.net</option>
-                                        <option value="webpg.top" selected>webpg.top</option>
+                                        <option value="ultihost.net">ultihost.net</option>
                                       </select>
                                     </div>
                                   </div>
