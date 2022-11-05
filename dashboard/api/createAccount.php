@@ -356,8 +356,8 @@
   <p style="line-height: 1.2; word-break: break-word; mso-line-height-alt: NaNpx; margin: 0;"> </p>
   <p style="line-height: 1.2; word-break: break-word; mso-line-height-alt: NaNpx; margin: 0;">Furthermore, if you have a custom domain (example.com), and would like to use our hosting service, you can do so by changing your nameservers to ours: </p>
   <p style="line-height: 1.2; word-break: break-word; mso-line-height-alt: NaNpx; margin: 0;"> </p>
-  <p style="line-height: 1.2; word-break: break-word; mso-line-height-alt: NaNpx; margin: 0;">- ns1.ultihost.net</p>
-  <p style="line-height: 1.2; word-break: break-word; mso-line-height-alt: NaNpx; margin: 0;">- ns2.ultihost.net</p>
+  <p style="line-height: 1.2; word-break: break-word; mso-line-height-alt: NaNpx; margin: 0;">- ns1.byet.org</p>
+  <p style="line-height: 1.2; word-break: break-word; mso-line-height-alt: NaNpx; margin: 0;">- ns2.byet.org</p>
   <p style="line-height: 1.2; word-break: break-word; mso-line-height-alt: NaNpx; margin: 0;"> </p>
   <p style="line-height: 1.2; word-break: break-word; mso-line-height-alt: NaNpx; margin: 0;">Then going to the Addon Domains section in your control panel and adding your domain there.</p>
   </div>
@@ -470,9 +470,9 @@
 
   Furthermore, if you have a custom domain (example.com), and would like to use our hosting service, you can do so by changing your nameservers to ours:
 
-  - ns1.ultihost.net
+  - ns1.byet.org
 
-  - ns2.ultihost.net
+  - ns2.byet.org
 
   Then going to the Addon Domains section in your control panel and adding your domain there.
 

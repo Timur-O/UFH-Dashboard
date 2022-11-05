@@ -31,8 +31,8 @@
     $dnsCNAME = dns_get_record($_SESSION['newDomain'], DNS_CNAME);
     $cnameRecord = $dnsCNAME[0]['target'];
 
-    if ((gethostbyname('ns1.ultihost.net') == gethostbyname($firstNameserver) &&
-        gethostbyname('ns2.ultihost.net') == gethostbyname($secondNameserver)) ||
+    if ((gethostbyname('ns1.byet.org') == gethostbyname($firstNameserver) &&
+        gethostbyname('ns2.byet.org') == gethostbyname($secondNameserver)) ||
         str_contains($cnameRecord, ".BODIS.com")) {
         header("Location: ./createAccountInfo.php"); die();
     } else {
@@ -170,7 +170,7 @@
                     <?php
                         if ($nameServersInvalid) {
                             echo '<div id="nameserverError" class="alert alert-danger">';
-                                echo '<span class="text-dark">This domain\'s nameservers are not pointing to ours! Please make sure the nameservers are set to: ns1.ultihost.net and ns2.ultihost.net</span><br/></br>';
+                                echo '<span class="text-dark">This domain\'s nameservers are not pointing to ours! Please make sure the nameservers are set to: ns1.byet.org and ns2.byet.org</span><br/></br>';
                                 echo '<span class="text-dark">Sometimes it may take up to 72 hours for the nameserver change to propagate. If you keep getting this error and already changed the nameservers, please try again later.</span>';
                             echo '</div>';
                         }
@@ -209,8 +209,8 @@
                                     Make sure your domain is pointing to Ultifree Hosting nameservers:
                                 </p>
                                 <ul>
-                                    <li>ns1.ultihost.net</li>
-                                    <li>ns2.ultihost.net</li>
+                                    <li>ns1.byet.org</li>
+                                    <li>ns2.byet.org</li>
                                 </ul>
                                 <p>
                                     To change your nameservers go to your DNS provider (usually the company you bought your domain from) and change your domain's nameservers. 
