@@ -78,3 +78,7 @@
     if (isset($_SESSION['affiliateLogin']) && $_SESSION['affiliateLogin'] == true) {
         header("Location: https://affiliates.ultifreehosting.com/index.php");
     }
+
+    if (isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true) {
+        header("Location: https://admin.ultifreehosting.com/index.php");
+    }

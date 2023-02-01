@@ -25,9 +25,13 @@
     if (isset($_SESSION['connectedByAdmin'])) {
         if ($_SESSION['connectedByAdmin']) {
             $tempAdminValue = $_SESSION['adminUser'];
+            $tempLoginTimeValue = $_SESSION['loginTime'];
             session_destroy();
             session_start();
             $_SESSION['adminUser'] = $tempAdminValue;
+            $_SESSION['user'] = $tempAdminValue;
+            $_SESSION['returnedByAdmin'] = true;
+            $_SESSION['loginTime'] = $tempLoginTimeValue;
             header("Location: https://admin.ultifreehosting.com/manageusers.php"); die();
         } else {
             session_destroy();
