@@ -144,7 +144,6 @@
                                 <?php
                                     if ($verified) {
                                         echo "Your email is now verified! Now all that's left is to login to your account!";
-                                        echo "<script>CompleteVerificationEvent();</script>";
                                     } else {
                                         echo "An error occurred during the verification of your email address. Please try again.";
                                     }
@@ -172,7 +171,7 @@
   <script src="./dashboard/assets/js/core/popper.min.js"></script>
   <script src="./dashboard/assets/js/core/bootstrap.min.js"></script>
   <!-- Custom JS Files -->
-  <script src="./dashboard/assets/js/loggedOut.js"></script>
+  <script src="./dashboard/assets/js/loggedOut.js" <?php if ($verified) { echo 'onload="function completeVerificationEventWhenReady() { if (typeof CompleteVerificationEvent != \'undefined\') { CompleteVerificationEvent(); } else { setTimeout(completeVerificationEventWhenReady, 100); } } completeVerificationEventWhenReady();"'; } ?>></script>
   <!--  Notifications Plugin    -->
   <script src="./dashboard/assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects etc -->

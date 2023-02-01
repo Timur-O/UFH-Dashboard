@@ -80,13 +80,11 @@
   <script src="./dashboard/assets/js/core/popper.min.js"></script>
   <script src="./dashboard/assets/js/core/bootstrap.min.js"></script>
   <!-- Custom JS Files -->
-  <script src="./dashboard/assets/js/loggedOut.js"></script>
+  <script src="./dashboard/assets/js/loggedOut.js" <?php echo 'onload="function dashboardErrorEventWhenReady() { if (typeof DashboardErrorEvent != \'undefined\') { DashboardErrorEvent(\'' . $_GET['errorCode'] . '\'); } else { setTimeout(dashboardErrorEventWhenReady, 100); } } dashboardErrorEventWhenReady();"'; ?>></script>
   <!--  Notifications Plugin    -->
   <script src="./dashboard/assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects etc -->
   <script src="./dashboard/assets/js/paper-dashboard.js?v=2.0.1" type="text/javascript"></script>
-  <!-- Google Analytics Error Event -->
-  <script>ErrorEvent();</script>
 </body>
 
 </html>

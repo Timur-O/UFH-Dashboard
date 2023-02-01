@@ -122,13 +122,11 @@
   <script src="./dashboard/assets/js/core/popper.min.js"></script>
   <script src="./dashboard/assets/js/core/bootstrap.min.js"></script>
   <!-- Custom JS Files -->
-  <script src="./dashboard/assets/js/loggedOut.js"></script>
+  <script src="./dashboard/assets/js/loggedOut.js" <?php echo 'onload="function beginVerificationEventWhenReady() { if (typeof BeginVerificationEvent != \'undefined\') { BeginVerificationEvent(); } else { setTimeout(beginVerificationEventWhenReady, 100); } } beginVerificationEventWhenReady();"'; ?>></script>
   <!--  Notifications Plugin    -->
   <script src="./dashboard/assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects etc -->
   <script src="./dashboard/assets/js/paper-dashboard.js?v=2.0.1" type="text/javascript"></script>
-  <!-- Google Analytics Verification Event -->
-  <script>BeginVerificationEvent();</script>
 </body>
 
 </html>

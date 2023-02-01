@@ -250,7 +250,7 @@
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/paper-dashboard.js?v=2.0.1" type="text/javascript"></script>
   <!-- Custom Javascript -->
-  <script src="./assets/js/custom.js" type="text/javascript"></script>
+  <script src="./assets/js/custom.js" type="text/javascript" <?php if ($nameServersInvalid) { echo 'onload="function nameServerEventWhenReady() { if (typeof NameServerEvent != \'undefined\') { NameServerEvent(); } else { setTimeout(nameServerEventWhenReady, 100); } } nameServerEventWhenReady();"'; } ?>></script>
 
 </body>
 

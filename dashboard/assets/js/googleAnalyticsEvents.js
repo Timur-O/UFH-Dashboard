@@ -25,8 +25,10 @@ function CompleteSignupEvent() {
     gtag('event', 'CompleteSignupClick');
 }
 
-function ErrorEvent() {
-    gtag('event', 'Error');
+function DashboardErrorEvent(errorCode) {
+    gtag('event', 'DashboardError', {
+        'code': errorCode
+    });
 }
 
 function LoginEvent(type, manual=true) {
@@ -36,11 +38,11 @@ function LoginEvent(type, manual=true) {
     });
 }
 
-function BeginVerificationEvent() {
-    gtag('event', 'VerificationComplete');
+function BeginVerificationEvent() { // used via PHP insert
+    gtag('event', 'VerificationBegun');
 }
 
-function CompleteVerificationEvent() {
+function CompleteVerificationEvent() { // used via PHP insert
     gtag('event', 'VerificationComplete');
 }
 
@@ -63,6 +65,6 @@ function BannedPhraseEvent(phrase) {
     });
 }
 
-function NameServerEvent() {
+function NameServerEvent() { // used via PHP insert
     gtag('event', 'NameServerError');
 }
