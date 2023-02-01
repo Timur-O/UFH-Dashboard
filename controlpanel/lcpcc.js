@@ -1,5 +1,6 @@
 document.getElementById("lnkUserPrefChangeLang").parentElement.style.display = "none"; // Hides Change Language Dropdown
-document.getElementById("lnkUserPrefChangePwd").innerHTML="Client Area"; // Change password button to client area Dropdown
+document.getElementById("lnkUserPrefUpdateContactInfo").parentElement.style.display = "none"; // Hides Change Contact Email Dropdown
+document.getElementById("lnkUserPrefChangePwd").innerHTML="Client Area"; // Change Password Button to Client Area Dropdown
 document.getElementById("lnkUserPrefChangePwd").setAttribute("href", "https://app.ultifreehosting.com"); // Change password button to client area Dropdown
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -32,17 +33,34 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function changeLinks() {
-  document.getElementById("item_change_language").parentElement.style.display = "none"; // Hides Change Language Button
-  document.getElementById("item_errors").parentElement.style.display = "none"; // Hides Errors Button
-  document.getElementById("item_raw_access").parentElement.style.display = "none"; // Hides Raw Access Button
-  document.getElementById("item_php").parentElement.style.display = "none"; // Hides General PHP Info Button
-  document.getElementById("item_attracta_seotips").parentElement.style.display = "none"; // Hides SEO Tools Button
-  document.getElementById("item_disk_usage").parentElement.style.display = "none"; // Hides Disk Usage Button
-  document.getElementById("item_change_password").innerHTML="Client Area"; // Change password button to client area Button
-  document.getElementById("item_change_password").setAttribute("href", "https://app.ultifreehosting.com"); // Change password button to client area Button
-  document.getElementById("icon-change_password").setAttribute("href", "https://app.ultifreehosting.com"); // Make change password icon link to client area
-  document.getElementById("icon-cloudflare_analytics").setAttribute("href", "https://ultifreehosting.com/faq"); // Change link for tutorials
-  document.getElementById("item_cloudflare_analytics").setAttribute("href", "https://ultifreehosting.com/faq"); // Change link for tutorials
+    // Preferences Box
+    document.getElementById("item_change_language").parentElement.style.display = "none"; // Hides Change Language Button
+    document.getElementById("item_contact_information").parentElement.style.display = "none"; // Hides Change Contact Button
+    document.getElementById("item_change_password").innerHTML = "Client Area"; // Change password button to client area Button
+    document.getElementById("item_change_password").setAttribute("href", "https://app.ultifreehosting.com"); // Change password button to client area Button
+    document.getElementById("icon-change_password").setAttribute("href", "https://app.ultifreehosting.com"); // Make change password icon link to client area
+
+    // Files Box
+    document.getElementById("item_disk_usage").parentElement.style.display = "none"; // Hides Disk Usage Button
+
+    // Email Box
+    document.getElementById("item_accounts").parentElement.style.display = "none"; // Hides Email Accounts Button
+    document.getElementById("item_forwarders").parentElement.style.display = "none"; // Hides Forwarders Button
+    document.getElementById("item_email_filters").parentElement.style.display = "none"; // Hides Webmail Button
+
+    // Metrics Box
+    document.getElementById("item_errors").parentElement.style.display = "none"; // Hides Errors Button
+    document.getElementById("item_raw_access").parentElement.style.display = "none"; // Hides Raw Access Button
+    document.getElementById("item_php").parentElement.style.display = "none"; // Hides General PHP Info Button
+
+    // Software Box
+    document.getElementById("item_lvephpsel").parentElement.style.display = "none"; // Hides Select PHP Version Button
+    document.getElementById("item_attracta_seotips").parentElement.style.display = "none"; // Hides SEO Tools Button
+
+    // Support Box
+    document.getElementById("icon-cloudflare_analytics").setAttribute("href", "https://ultifreehosting.com/faq"); // Change link for tutorials
+    document.getElementById("item_cloudflare_analytics").setAttribute("href", "https://ultifreehosting.com/faq"); // Change link for tutorials
+    document.getElementById("item_cloudflare_analytics").innerHTML = "Knowledge Base"; // Change name for tutorials
 }
 
 function trackPremLinks() {
