@@ -2824,7 +2824,7 @@ a[data-toggle=collapse][aria-expanded=true] .caret,
   left: 19px;
   position: absolute;
   top: 50%;
-  margin-top: -11px;
+  margin-top: -15px;
 }
 .alert button.close {
   position: absolute;

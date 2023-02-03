@@ -7,6 +7,23 @@
  * @var string $user The clientID
  * @var mysqli $conn The Database Object
  */
+
+$sslVerificationTimedOut = false;
+$cnameRefresh = false;
+
+if ($_SERVER['REQUEST_METHOD'] == "GET") {
+    if (isset($_GET['error'])) {
+        if (trim($_GET['error']) == 'timeout') {
+            $sslVerificationTimedOut = true;
+        }
+    }
+
+    if (isset($_GET['refresh'])) {
+        if (trim($_GET['refresh']) == 'cname') {
+            $cnameRefresh = true;
+        }
+    }
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -234,11 +251,15 @@
                                               echo 'To verify your SSL Certificate please create the following CNAME record:';
                                               echo '</p>';
                                               echo '<p class="text-dark">';
-                                              echo 'Source: _acme-challenge.' . $certificate['domain'];
+                                              echo 'Source: _acme-challenge (.' . $certificate['domain'] . ')';
                                               echo '</p>';
                                               echo '<p class="text-dark">';
                                               echo 'Destination: ' . $certificate['subdomainID'] . '.acme.ultifreehosting.com';
                                               echo '</p>';
+                                              echo '<div class="alert alert-with-icon alert-info">';
+                                              echo '<span data-notify="icon" class="nc-icon nc-alert-circle-i"></span>';
+                                              echo '<span>Due to DNS Propagation it may take up to 72 hours for CNAME records to be detected.</span>';
+                                              echo '</div>';
                                               echo '<p class="text-dark">';
                                                   $cnameRecords = dns_get_record('_acme-challenge.' . $certificate['domain'], DNS_CNAME);
                                                   if (sizeof($cnameRecords) == 0) {
@@ -247,9 +268,12 @@
                                                       echo "Current Destination: " . $cnameRecords[0]['target'];
                                                   }
                                               echo '</p>';
-                                              echo '<p class="text-danger">';
-                                              echo 'Due to DNS Propagation it may take up to 72 hours for CNAME records to be detected.';
-                                              echo '</p>';
+                                              if ($sslVerificationTimedOut) {
+                                                  echo '<div class="alert alert-danger" role="alert">';
+                                                  echo 'Error: SSL Verification Timed-Out. Please try again later.';
+                                                  echo '</div>';
+                                                  echo '<script>window.addEventListener("load", () => {const verifySslModal = new bootstrap.Modal(document.getElementById("verifySslModal")); verifySslModal.show();})</script>';
+                                              }
                                               echo '<form class="d-none" action="./api/createFreeSslCertificateVerification.php" method="post" id="verifySslCertificateForm">';
                                               echo '<div class="form-group d-none">';
                                               echo '<input type="text" class="d-none" id="verifySslId" name="certificateID" value="' . $certificate["certificateID"] . '">';
@@ -260,7 +284,10 @@
                                                 if (sizeof($cnameRecords) > 0 && $cnameRecords[0]['target'] == $certificate['subdomainID'] . '.acme.ultifreehosting.com') {
                                                     echo '<button type="button" class="btn btn-danger" onclick="$(\'.loading_overlay_modal\').css(\'visibility\', \'visible\'); $(\'#verifySslCertificateForm\').submit(); return false;">Verify SSL Certificate</button>';
                                                 } else {
-                                                    echo '<button type="button" class="btn btn-danger" onclick="$(\'.loading_overlay_modal\').css(\'visibility\', \'visible\'); location.reload(); return false;">Verify CNAME Record</button>';
+                                                    echo '<button type="button" class="btn btn-danger" onclick="$(\'.loading_overlay_modal\').css(\'visibility\', \'visible\'); location.assign(location.protocol + \'//\' + location.host + location.pathname + \'?refresh=cname\'); return false;">Verify CNAME Record</button>';
+                                                }
+                                                if ($cnameRefresh) {
+                                                    echo '<script>window.addEventListener("load", () => {const verifySslModal = new bootstrap.Modal(document.getElementById("verifySslModal")); verifySslModal.show();})</script>';
                                                 }
                                               echo '</div>';
                                               echo '</div>';

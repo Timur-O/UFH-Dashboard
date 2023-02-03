@@ -28,11 +28,11 @@
     use AcmePhp\Ssl\CertificateRequest;
     use AcmePhp\Ssl\DistinguishedName;
     use AcmePhp\Ssl\Generator\KeyPairGenerator;
+    use AcmePhp\Ssl\Generator\RsaKey\RsaKeyOption;
     use AcmePhp\Ssl\KeyPair;
     use AcmePhp\Ssl\PrivateKey;
     use AcmePhp\Ssl\PublicKey;
     use AcmePhp\Ssl\Parser\KeyParser;
-    use AcmePhp\Ssl\Signer\CertificateRequestSigner;
     use AcmePhp\Ssl\Signer\DataSigner;
     use GuzzleHttp\Client as GuzzleHttpClient;
 
@@ -99,7 +99,7 @@
         $dn = new DistinguishedName($certificate['domain']);
 
         // Make a new key pair. We'll keep the private key as our cert key
-        $domainKeyPair = $keyPairGenerator->generateKeyPair(new \AcmePhp\Ssl\Generator\RsaKey\RsaKeyOption(2048));
+        $domainKeyPair = $keyPairGenerator->generateKeyPair(new RsaKeyOption(2048));
 
         $csr = new CertificateRequest($dn, $domainKeyPair);
         $certPrivateKey = $domainKeyPair->getPrivateKey()->getPem();
@@ -141,6 +141,12 @@
         // Exception Error
         $errorMessage = $conn->real_escape_string($e->getMessage());
         $errorLocation = "Verify SSL (Exception)";
+
+        // Redirect if timed out
+        if (str_contains($errorMessage, "Challenge timed out")) {
+            //Redirect to SSL dashboard
+            header("Location: ../ssl.php?error=timeout"); die();
+        }
 
         // Insert into DB (if possible)
         $insertExceptionErrorSQL = "INSERT INTO `errors` (`errorText`, `errorLocation`, `errorTime`) VALUES ('$errorMessage', '$errorLocation', now())";

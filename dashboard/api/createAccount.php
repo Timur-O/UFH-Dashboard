@@ -74,6 +74,8 @@
             $errorMessage = $conn->real_escape_string($e->getMessage());
             $errorLocation = "Create Account - PHPMailer Exception";
 
+            $errorMessage = $errorMessage . " => Email: " . $email;
+
             // Insert into DB (if possible)
             $insertDatabaseErrorSQL = "INSERT INTO `errors` (`errorText`, `errorLocation`, `errorTime`) VALUES ('$errorMessage', '$errorLocation', now())";
             $conn->query($insertDatabaseErrorSQL);
@@ -96,6 +98,8 @@
             //Redirect to custom domain creation page
             header("Location: ../createAccountCustomDomain.php?error=ns"); die();
         }
+
+        $errorMessage = $errorMessage . " => Domain: " . $domain . " Email: " . $email;
 
         // Insert into DB (if possible)
         $insertDatabaseErrorSQL = "INSERT INTO `errors` (`errorText`, `errorLocation`, `errorTime`) VALUES ('$errorMessage', '$errorLocation', now())";
