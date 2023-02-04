@@ -173,7 +173,7 @@
                           </tr>
 
                           <tr>
-                              <th>Account IP Address:</th>
+                              <th>IP Address:</th>
                               <td>
                                   <?php
                                     if (${'accStatus' . $accountNumber} == "P") {
@@ -186,7 +186,7 @@
                           </tr>
 
                           <tr>
-                              <th>Account Hosting Volume:</th>
+                              <th>Hosting Volume:</th>
                               <td>
                                   <?php
                                     if (${'accStatus' . $accountNumber} == "P") {
@@ -278,7 +278,7 @@
                                       foreach (${'listOfDomainsAccount' . $accountNumber} as $domain) {
                                           echo "<tr>";
                                           echo "<td colspan='2' class='text-center'>";
-                                          echo '<a target="_blank" href="http://www' . $domain .'">' . $domain . '</a>';
+                                          echo '<a target="_blank" href="http://www.' . $domain .'">' . $domain . '</a>';
                                           echo "</td>";
                                           echo "</tr>";
                                       }
