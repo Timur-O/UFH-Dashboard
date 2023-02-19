@@ -150,7 +150,7 @@ if (currentPage.indexOf('createAccountSub') >= 0) {
                             $("#continueButton").attr("disabled", true);
                             $(domainErrorSelector.children()[0]).text("This domain is not available, please try a different one.");
                             // Show error message
-                            $domainErrorSelector.show();
+                            domainErrorSelector.show();
                             domainSuccessSelector.hide();
                         }
                     });

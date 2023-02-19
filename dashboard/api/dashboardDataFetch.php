@@ -120,6 +120,14 @@
             $listOfDomainsAccount1 = $getUserDomainsResponse->getDomains();
         } else {
             $listOfDomainsAccount1 = ["Error fetching domains, please try again later."];
+
+            // API Error
+            $errorMessage = $conn->real_escape_string($getUserDomainsResponse->getMessage());
+            $errorLocation = "Dashboard Data Fetch, User Domains (API)";
+
+            // Insert into DB (if possible)
+            $insertDatabaseErrorSQL = "INSERT INTO `errors` (`errorText`, `errorLocation`, `errorTime`) VALUES ('$errorMessage', '$errorLocation', now())";
+            $conn->query($insertDatabaseErrorSQL);
         }
     }
 
