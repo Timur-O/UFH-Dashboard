@@ -118,6 +118,8 @@
 
         if ($getUserDomainsResponse->isSuccessful()) {
             $listOfDomainsAccount1 = $getUserDomainsResponse->getDomains();
+        } else {
+            $listOfDomainsAccount1 = ["Error fetching domains, please try again later."];
         }
     }
 
@@ -176,6 +178,8 @@
 
         if ($getUserDomainsResponse->isSuccessful()) {
             $listOfDomainsAccount2 = $getUserDomainsResponse->getDomains();
+        } else {
+            $listOfDomainsAccount2 = ["Error fetching domains, please try again later."];
         }
     }
 
@@ -234,6 +238,8 @@
 
         if ($getUserDomainsResponse->isSuccessful()) {
             $listOfDomainsAccount3 = $getUserDomainsResponse->getDomains();
+        } else {
+            $listOfDomainsAccount3 = ["Error fetching domains, please try again later."];
         }
     }
 

@@ -274,7 +274,13 @@
                                   </thead>
                                   <tbody>
                                   <?php
-                                  if (sizeof(${'listOfDomainsAccount' . $accountNumber}) > 0) {
+                                  if (in_array("Error fetching domains, please try again later.", ${'listOfDomainsAccount' . $accountNumber})) {
+                                      echo "<tr>";
+                                      echo "<td colspan='2' class='text-center'>";
+                                      echo "Error fetching domains, please try again later.";
+                                      echo "</td>";
+                                      echo "</tr>";
+                                  } else if (sizeof(${'listOfDomainsAccount' . $accountNumber}) > 0) {
                                       foreach (${'listOfDomainsAccount' . $accountNumber} as $domain) {
                                           echo "<tr>";
                                           echo "<td colspan='2' class='text-center'>";
@@ -380,6 +386,12 @@
                                       echo "<tr>";
                                       echo "<td colspan='2' class='text-center'>";
                                       echo "Website builder unavailable on this hosting account.";
+                                      echo "</td>";
+                                      echo "</tr>";
+                                  } else if (in_array("Error fetching domains, please try again later.", ${'listOfDomainsAccount' . $accountNumber})) {
+                                      echo "<tr>";
+                                      echo "<td colspan='2' class='text-center'>";
+                                      echo "Error fetching domains, please try again later.";
                                       echo "</td>";
                                       echo "</tr>";
                                   } else if (sizeof(${'listOfDomainsAccount' . $accountNumber}) > 0) {
