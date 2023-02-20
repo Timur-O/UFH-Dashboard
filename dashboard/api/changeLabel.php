@@ -14,7 +14,7 @@
 
     if ($getClientIDForAccountResult->fetch_assoc()['clientID'] != $user) {
         // User making request isn't the owner of the account
-        header("Location: ../../login.php");
+        header("Location: ../../login.php"); die();
     } else {
         $sql = "UPDATE `accounts` SET `label` = '$newLabel' WHERE `accountID` = '$accountID'";
         $result = $conn->query($sql);

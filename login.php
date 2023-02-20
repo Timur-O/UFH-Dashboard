@@ -153,7 +153,7 @@
                     $_SESSION['loginTime'] = time();
 
                     //Redirect
-                    header("Location: dashboard/home.php");
+                    header("Location: dashboard/home.php"); die();
                     die();
                 }
             }

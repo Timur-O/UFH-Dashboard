@@ -151,7 +151,7 @@
                       $conn->query($insertDatabaseErrorSQL);
 
                       //Redirect to error page
-                      header("Location: error.php?errorCode=" . $conn->insert_id);
+                      header("Location: error.php?errorCode=" . $conn->insert_id); die();
                   } else {
                       // Update last password change date
                       $currTime = time();
@@ -171,7 +171,7 @@
                       }
 
                       // Redirect to login page
-                      header("Location: login.php");
+                      header("Location: login.php"); die();
                   }
               }
             ?>

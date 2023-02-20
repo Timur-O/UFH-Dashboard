@@ -12,7 +12,7 @@
 
     if ($getClientIDForEmailResult->num_rows > 0) {
         // A user with this email already exists
-        header("Location: ../../login.php");
+        header("Location: ../../login.php"); die();
     } else {
         $updateEmailSQL = "UPDATE `clients` SET `email` = '$newEmail' WHERE `clientID` = '$user'";
         $updateEmailResult = $conn->query($updateEmailSQL);

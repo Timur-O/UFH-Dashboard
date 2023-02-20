@@ -184,7 +184,7 @@ function sendReset($email, $conn) {
         $conn->query($insertDatabaseErrorSQL);
 
         //Redirect to error page
-        header("Location: error.php?errorCode=" . $conn->insert_id);
+        header("Location: error.php?errorCode=" . $conn->insert_id); die();
     }
 
     $verificationURL = "https://app.ultifreehosting.com/resetpassword.php?client=" . $clientID . "&resetCode=" . $resetHash;

@@ -29,7 +29,7 @@ seq2 = 0, delays2 = 80, durations2 = 500;
 
 $(document).ready(function() {
 
-  if ($('.full-screen-map').length == 0 && $('.bd-docs').length == 0) {
+  if ($('.full-screen-map').length === 0 && $('.bd-docs').length === 0) {
     // On click navbar-collapse the menu will be white not transparent
     $('.collapse').on('show.bs.collapse', function() {
       $(this).closest('.navbar').removeClass('navbar-transparent').addClass('bg-white');
@@ -44,7 +44,7 @@ $(document).ready(function() {
   scroll_distance = $navbar.attr('color-on-scroll') || 500;
 
   // Check if we have the class "navbar-color-on-scroll" then add the function to remove the class "navbar-transparent" so it will transform to a plain color.
-  if ($('.navbar[color-on-scroll]').length != 0) {
+  if ($navbar.length !== 0) {
     paperDashboard.checkScrollForTransparentNavbar();
     $(window).on('scroll', paperDashboard.checkScrollForTransparentNavbar)
   }
@@ -71,7 +71,7 @@ $(document).ready(function() {
 $(document).on('click', '.navbar-toggle', function() {
   $toggle = $(this);
 
-  if (paperDashboard.misc.navbar_menu_visible == 1) {
+  if (paperDashboard.misc.navbar_menu_visible === 1) {
     $('html').removeClass('nav-open');
     paperDashboard.misc.navbar_menu_visible = 0;
     setTimeout(function() {
@@ -103,12 +103,12 @@ $(window).resize(function() {
   // reset the seq for charts drawing animations
   seq = seq2 = 0;
 
-  if ($('.full-screen-map').length == 0 && $('.bd-docs').length == 0) {
+  if ($('.full-screen-map').length === 0 && $('.bd-docs').length === 0) {
     $navbar = $('.navbar');
-    isExpanded = $('.navbar').find('[data-toggle="collapse"]').attr("aria-expanded");
+    isExpanded = $navbar.find('[data-toggle="collapse"]').attr("aria-expanded");
     if ($navbar.hasClass('bg-white') && $(window).width() > 991) {
       $navbar.removeClass('bg-white').addClass('navbar-transparent');
-    } else if ($navbar.hasClass('navbar-transparent') && $(window).width() < 991 && isExpanded != "false") {
+    } else if ($navbar.hasClass('navbar-transparent') && $(window).width() < 991 && isExpanded !== "false") {
       $navbar.addClass('bg-white').removeClass('navbar-transparent');
     }
   }
@@ -120,14 +120,12 @@ paperDashboard = {
   },
 
   initMinimizeSidebar: function() {
-    if ($('.sidebar-mini').length != 0) {
+    if ($('.sidebar-mini').length !== 0) {
       sidebar_mini_active = true;
     }
 
     $('#minimizeSidebar').click(function() {
-      var $btn = $(this);
-
-      if (sidebar_mini_active == true) {
+      if (sidebar_mini_active === true) {
         $('body').addClass('sidebar-mini');
         sidebar_mini_active = true;
         paperDashboard.showSidebarMessage('Sidebar mini activated...');

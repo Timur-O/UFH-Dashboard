@@ -24,8 +24,8 @@ $.getJSON("assets/config.json", function(data){
 });
 
 // Change nav active arrow
-let currentPage = window.location.pathname.substr(1);
-let navElementWithCurrentPage = $("a[href*='" + currentPage + "']");
+let currentPage = window.location.pathname.substr(11);
+let navElementWithCurrentPage = $("li > a[href*='" + currentPage + "']");
 if (navElementWithCurrentPage.length > 1) {
     let accountNumber = new URLSearchParams(window.location.search).get('accDisp');
     $(navElementWithCurrentPage[accountNumber - 1]).parent().addClass("active");

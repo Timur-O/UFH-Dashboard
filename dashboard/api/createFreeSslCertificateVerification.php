@@ -132,7 +132,7 @@
             header("Location: ../../error.php?errorCode=" . $conn->insert_id); die();
         } else {
             // Redirect back to main SSL Page
-            header("Location: ../ssl.php");
+            header("Location: ../ssl.php"); die();
         }
     } catch (Exception $e) {
         // Remove TXT Record

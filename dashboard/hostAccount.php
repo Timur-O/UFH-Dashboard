@@ -105,111 +105,112 @@
                   </div>
               </div>
 
-                <div class="row">
+              <div class="row">
 
                   <div class="col-xl-6">
-                    <div class="card ">
-                      <div class="card-body ">
-                      <table class="table table-responsive-sm">
-                        <thead class="text-primary">
-                          <th colspan="2" class="text-center">
-                            Account Details - Information about your Hosting Account
-                          </th>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th>Username:</th>
-                            <td>
-                              <?php echo ${"accUsername" . $accountNumber}; ?>
-                            </td>
-                          </tr>
 
-                          <tr>
-                            <th>Password:</th>
-                            <td>
-                              <table class="table-borderless table-responsive-stack">
-                                <tr>
-                                  <td class="pl-0">
-                                    <input id="accDetailsPass" disabled type="password" value="<?php echo ${"accPassword" . $accountNumber}; ?>" class="displayPasswordInput" />
-                                  </td>
-                                  <td class="pl-0">
-                                    <a href="#" for="accDetailsPass" class="btn btn-warning btn-sm showHidePass">Show/Hide</a>
-                                  </td>
-                                </tr>
+                      <div class="card ">
+                          <div class="card-body ">
+                              <table class="table table-responsive-sm">
+                                  <thead class="text-primary">
+                                  <th colspan="2" class="text-center">
+                                      Account Details - Information about your Hosting Account
+                                  </th>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <th>Username:</th>
+                                      <td>
+                                          <?php echo ${"accUsername" . $accountNumber}; ?>
+                                      </td>
+                                  </tr>
+
+                                  <tr>
+                                      <th>Password:</th>
+                                      <td>
+                                          <table class="table-borderless table-responsive-stack">
+                                              <tr>
+                                                  <td class="pl-0">
+                                                      <input id="accDetailsPass" disabled type="password" value="<?php echo ${"accPassword" . $accountNumber}; ?>" class="displayPasswordInput" />
+                                                  </td>
+                                                  <td class="pl-0">
+                                                      <a href="#" for="accDetailsPass" class="btn btn-warning btn-sm showHidePass">Show/Hide</a>
+                                                  </td>
+                                              </tr>
+                                          </table>
+                                      </td>
+                                  </tr>
+
+                                  <tr>
+                                      <th>Status:</th>
+                                      <td>
+                                          <?php
+                                          if (${"accStatus" . $accountNumber} == "A") {
+                                              echo '<span class="badge badge-success">Active</span>';
+                                          } elseif(${"accStatus" . $accountNumber} == "P") {
+                                              echo '<span class="badge badge-primary">Processing</span>';
+                                          } elseif(${"accStatus" . $accountNumber} == "D") {
+                                              echo '<span class="badge badge-danger">Deleted</span>';
+                                          } elseif(${"accStatus" . $accountNumber} == "S") {
+                                              echo '<span class="badge badge-danger">Suspended</span>';
+                                          } else {
+                                              echo '<span class="badge badge-default">Inactive</span>';
+                                          }
+                                          ?>
+                                      </td>
+                                  </tr>
+
+                                  <tr>
+                                      <th>Main Domain:</th>
+                                      <td>
+                                          <?php
+                                          if (${'accStatus' . $accountNumber} == "P") {
+                                              echo "Available once processing is completed.";
+                                          } else {
+                                              echo ${"ultifreeID" . $accountNumber} . "." . ${'accApiDomain' . $accountNumber};
+                                          }
+                                          ?>
+                                      </td>
+                                  </tr>
+
+                                  <tr>
+                                      <th>IP Address:</th>
+                                      <td>
+                                          <?php
+                                          if (${'accStatus' . $accountNumber} == "P") {
+                                              echo "Available once processing is completed.";
+                                          } else {
+                                              echo dns_get_record(${"ultifreeID" . $accountNumber} . "." . ${'accApiDomain' . $accountNumber}, DNS_A)[0]["ip"];
+                                          }
+                                          ?>
+                                      </td>
+                                  </tr>
+
+                                  <tr>
+                                      <th>Hosting Volume:</th>
+                                      <td>
+                                          <?php
+                                          if (${'accStatus' . $accountNumber} == "P") {
+                                              echo "Available once processing is completed.";
+                                          } else {
+                                              echo ${'accHostingVolume' . $accountNumber};
+                                          }
+                                          ?>
+                                      </td>
+                                  </tr>
+
+                                  <tr>
+                                      <th>Date Created:</th>
+                                      <td>
+                                          <?php echo substr(${"accCreationDate" . $accountNumber}, 0, 2) . "/" . substr(${"accCreationDate" . $accountNumber}, 2, 2) . "/" . substr(${"accCreationDate" . $accountNumber}, 4, 4); ?>
+                                      </td>
+                                  </tr>
+                                  </tbody>
                               </table>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <th>Status:</th>
-                            <td>
-                              <?php
-                                if (${"accStatus" . $accountNumber} == "A") {
-                                  echo '<span class="badge badge-success">Active</span>';
-                                } elseif(${"accStatus" . $accountNumber} == "P") {
-                                  echo '<span class="badge badge-primary">Processing</span>';
-                                } elseif(${"accStatus" . $accountNumber} == "D") {
-                                  echo '<span class="badge badge-danger">Deleted</span>';
-                                } elseif(${"accStatus" . $accountNumber} == "S") {
-                                  echo '<span class="badge badge-danger">Suspended</span>';
-                                } else {
-                                  echo '<span class="badge badge-default">Inactive</span>';
-                                }
-                              ?>
-                            </td>
-                          </tr>
-
-                          <tr>
-                              <th>Main Domain:</th>
-                              <td>
-                                  <?php
-                                    if (${'accStatus' . $accountNumber} == "P") {
-                                        echo "Available once processing is completed.";
-                                    } else {
-                                        echo ${"ultifreeID" . $accountNumber} . "." . ${'accApiDomain' . $accountNumber};
-                                    }
-                                  ?>
-                              </td>
-                          </tr>
-
-                          <tr>
-                              <th>IP Address:</th>
-                              <td>
-                                  <?php
-                                    if (${'accStatus' . $accountNumber} == "P") {
-                                      echo "Available once processing is completed.";
-                                    } else {
-                                        echo dns_get_record(${"ultifreeID" . $accountNumber} . "." . ${'accApiDomain' . $accountNumber}, DNS_A)[0]["ip"];
-                                    }
-                                  ?>
-                              </td>
-                          </tr>
-
-                          <tr>
-                              <th>Hosting Volume:</th>
-                              <td>
-                                  <?php
-                                    if (${'accStatus' . $accountNumber} == "P") {
-                                        echo "Available once processing is completed.";
-                                    } else {
-                                        echo ${'accHostingVolume' . $accountNumber};
-                                    }
-                                  ?>
-                              </td>
-                          </tr>
-
-                          <tr>
-                            <th>Date Created:</th>
-                            <td>
-                              <?php echo substr(${"accCreationDate" . $accountNumber}, 0, 2) . "/" . substr(${"accCreationDate" . $accountNumber}, 2, 2) . "/" . substr(${"accCreationDate" . $accountNumber}, 4, 4); ?>
-                            </td>
-                          </tr>
-                        </tbody>
-                        </table>
+                          </div>
                       </div>
-                    </div>
 
-                    <div class="card ">
+                      <div class="card ">
                           <div class="card-body ">
                               <table class="table table-responsive-sm">
                                   <thead class="text-primary">
@@ -300,10 +301,311 @@
                               </table>
                           </div>
                       </div>
+
                   </div>
 
                   <div class="col-xl-6">
-                    <div class="card ">
+
+                      <div class="card">
+                          <!-- Loading Screen -->
+                          <div class="loading_overlay text-center text-primary">
+                              <div class="spinner-grow" style="width: 5rem; height: 5rem;" role="status">
+                                  <span class="sr-only">Loading...</span>
+                              </div>
+                          </div>
+                          <!-- Loading Screen End -->
+                          <div class="card-body">
+                              <table class="table-responsive-sm w-100">
+                                  <thead>
+                                  <th colspan="2" class="text-center">
+                                      Account Controls:
+                                  </th>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <td class="text-center">
+                                          <?php
+                                          // Create the control panel login form
+                                          if (${'accStatus' . $accountNumber} == "A" || ${'accStatus' . $accountNumber} == "S") {
+                                              echo '<form target="_blank" action="https://cpanel.ultihost.net/login.php" method="post" name="login">';
+                                          } else {
+                                              echo '<form action="#disabled" name="login">';
+                                          }
+                                          echo '<label for="mod_login_username" class="collapse input"><span>Username</span><input name="uname" id="mod_login_username" type="text" class="inputbox" alt="username" value="' . ${'accUsername' . $accountNumber} . '"/></label>';
+                                          echo '<label for="mod_login_password" class="collapse input"><span>Password</span><input type="password" id="mod_login_password" name="passwd" class="inputbox" alt="password" value="' . ${'accPassword' . $accountNumber} . '"/></label>';
+                                          if (${'accStatus' . $accountNumber} == "A" || ${'accStatus' . $accountNumber} == "S") {
+                                              echo '<a onclick="this.closest(\'form\').submit(); return false;" class="btn btn-round btn-success btn-block text-white"><i class="nc-icon nc-badge"></i> Control Panel</a>';
+                                          } else {
+                                              echo '<a href="#" class="btn btn-round btn-success btn-block disabled"><i class="nc-icon nc-badge"></i> Control Panel</a>';
+                                          }
+                                          echo '</form>';
+                                          ?>
+                                      </td>
+                                      <td class="text-center pl-2">
+                                          <?php
+                                          // Create the FTP button -> Generate URL
+                                          if (${'accStatus' . $accountNumber} == "A") {
+                                              $encoded_ftp_url = base64_encode('{"t":"ftp","c":{"p":"' . ${'accPassword' . $accountNumber} . '","i":"\/"}}');
+                                              $ftp_url = "https://filemanager.ai/new/#/c/185.27.134.11/" . ${'accUsername' .  $accountNumber} . "/" . $encoded_ftp_url;
+                                              echo '<a href="' . $ftp_url . '" target="_BLANK" class="btn btn-round btn-warning btn-block"><i class="nc-icon nc-image"></i> File Manager</a>';
+                                          } else {
+                                              echo '<a href="#" class="btn btn-round btn-warning btn-block disabled"><i class="nc-icon nc-image"></i> File Manager</a>';
+                                          }
+                                          ?>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-center">
+                                          <?php
+                                          if (${'accStatus' . $accountNumber} == "A") {
+                                              echo '<a href="#" class="btn btn-round btn-default btn-block" data-toggle="modal" data-target="#changePasswordModal"><i class="nc-icon nc-key-25"></i> Change Password</a>';
+                                          } else {
+                                              echo '<a href="#" class="btn btn-round btn-default btn-block disabled"><i class="nc-icon nc-key-25"></i> Change Password</a>';
+                                          }
+                                          ?>
+
+
+                                          <!-- Modal for Changing Password -->
+                                          <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="Change Password" aria-hidden="true">
+                                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                                  <div class="modal-content">
+                                                      <!-- Loading Screen -->
+                                                      <div class="loading_overlay_modal text-center text-primary">
+                                                          <div class="spinner-grow" style="width: 5rem; height: 5rem;" role="status">
+                                                              <span class="sr-only">Loading...</span>
+                                                          </div>
+                                                      </div>
+                                                      <!-- Loading Screen End -->
+                                                      <div class="modal-header">
+                                                          <h5 class="modal-title" id="changePasswordModalTitle">Change Password</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                              <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                          <form action="./api/changePassword.php" method="post" id="changePasswordForm">
+                                                              <div class="form-group">
+                                                                  <label for="changePasswordInput">New Password:</label>
+                                                                  <input type="text" class="form-control" id="changePasswordInput" name="newPassword" required value="<?php echo ${'accPassword' . $accountNumber}; ?>">
+                                                                  <input type="text" class="invisible" id="changePasswordAccount" name="ultifreeID" value="<?php echo ${'ultifreeID' . $accountNumber}; ?>">
+                                                                  <input type="text" class="invisible" id="changePasswordReturnDomain" name="returnDomain" value="?acc=<?php echo $accountNumber; ?>&accDisp=<?php echo $displayAccountNumber;?>">
+                                                              </div>
+                                                          </form>
+                                                          <div id="changePasswordInfoError" class="alert alert-danger">
+                                                              <span>Sorry, this password is invalid!</span>
+                                                          </div>
+                                                          <div id="changePasswordInfoSuccess" class="alert alert-success">
+                                                              <span>Password is valid, you can change it now!</span>
+                                                          </div>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                          <button type="button" id="changePasswordFormSubmitButton" class="btn btn-primary" onclick="$('.loading_overlay_modal').css('visibility', 'visible'); $('#changePasswordForm').submit(); return false;">Change Password</button>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </td>
+                                      <td class="text-center  pl-2">
+                                          <a href="#" class="btn btn-round btn-default btn-block" data-toggle="modal" data-target="#changeLabelModal"><i class="nc-icon nc-paper"></i> Change Label</a>
+
+                                          <!-- Modal for Changing Label -->
+                                          <div class="modal fade" id="changeLabelModal" tabindex="-1" role="dialog" aria-labelledby="Change Label" aria-hidden="true">
+                                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                                  <div class="modal-content">
+                                                      <!-- Loading Screen -->
+                                                      <div class="loading_overlay_modal text-center text-primary">
+                                                          <div class="spinner-grow" style="width: 5rem; height: 5rem;" role="status">
+                                                              <span class="sr-only">Loading...</span>
+                                                          </div>
+                                                      </div>
+                                                      <!-- Loading Screen End -->
+                                                      <div class="modal-header">
+                                                          <h5 class="modal-title" id="changeLabelModalTitle">Change Label</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                              <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                          <form action="./api/changeLabel.php" method="post" id="changeLabelForm">
+                                                              <div class="form-group">
+                                                                  <label for="changeLabelInput">New Label:</label>
+                                                                  <input type="text" minlength="1" class="form-control" id="changeLabelInput" name="newLabel" value="<?php echo ${'accLabel' . $accountNumber}; ?>">
+                                                                  <input type="text" class="invisible" id="changeLabelAccount" name="accountID" value="<?php echo ${'accountID' . $accountNumber}; ?>">
+                                                                  <input type="text" class="invisible" id="changeLabelReturnDomain" name="returnDomain" value="?acc=<?php echo $accountNumber; ?>&accDisp=<?php echo $displayAccountNumber;?>">
+                                                              </div>
+                                                          </form>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                          <button type="button" class="btn btn-primary" onclick="$('.loading_overlay_modal').css('visibility', 'visible'); $('#changeLabelForm').submit(); return false;">Change Label</button>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-center">
+                                          <a href="deactivations.php?acc=<?php echo $accountNumber; ?>" class="btn btn-round btn-default btn-block" data-toggle="tooltip" data-placement="left" title="Find out why your account got suspended"><i class="nc-icon nc-lock-circle-open"></i> Deactivation History</a>
+                                      </td>
+                                      <td class="text-center  pl-2">
+                                          <?php
+                                          if (${'accStatus' . $accountNumber} == "A") {
+                                              echo '<a href="#" class="btn btn-round btn-danger btn-block" data-toggle="modal" data-target="#removeHostingAccountModal"><i class="nc-icon nc-simple-remove"></i> Remove Hosting Account</a>';
+                                          } else {
+                                              echo '<a href="#" class="btn btn-round btn-danger btn-block disabled"><i class="nc-icon nc-simple-remove"></i> Remove Hosting Account</a>';
+                                          }
+                                          ?>
+
+                                          <!-- Modal for Removing Hosting Account -->
+                                          <div class="modal fade" id="removeHostingAccountModal" tabindex="-1" role="dialog" aria-labelledby="Remove Hosting Account" aria-hidden="true">
+                                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                                  <div class="modal-content">
+                                                      <!-- Loading Screen -->
+                                                      <div class="loading_overlay_modal text-center text-primary">
+                                                          <div class="spinner-grow" style="width: 5rem; height: 5rem;" role="status">
+                                                              <span class="sr-only">Loading...</span>
+                                                          </div>
+                                                      </div>
+                                                      <!-- Loading Screen End -->
+                                                      <div class="modal-header">
+                                                          <h5 class="modal-title" id="removeHostingAccountModalTitle">Delete Hosting Account</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                              <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                      </div>
+                                                      <div class="modal-body text-left">
+                                                          <p>
+                                                              This will disable your website and control panel. The contents of your website will be kept for 60 days, and will then be automatically deleted. You can reactivate your account at any time during these 60 days.
+                                                          </p>
+                                                          <p class="text-danger">
+                                                              <?php
+                                                              if (sizeof(${'listOfDomainsAccount' . $accountNumber}) > 0) {
+                                                                  echo "Before being able to delete your account please remove the following domains from your account: <br>";
+                                                                  foreach (${'listOfDomainsAccount' . $accountNumber} as $domain) {
+                                                                      echo "<br> - " . $domain . "<br>";
+                                                                  }
+                                                                  echo "<br> To remove the domains open your control panel, click on 'Addon Domains', remove all domains there, then try clicking this button again!";
+                                                              } else {
+                                                                  echo "<br> Would you like to continue?";
+                                                              }
+                                                              ?>
+                                                          </p>
+                                                          <form class="d-none" action="./api/removeAccount.php" method="post" id="removeAccountForm">
+                                                              <div class="form-group invisible">
+                                                                  <input type="text" class="invisible" id="removeAccountID" name="accountID" value="<?php echo ${'ultifreeID' . $accountNumber}; ?>">
+                                                                  <input type="text" class="invisible" id="removeAccountReturnDomain" name="returnDomain" value="?acc=<?php echo $accountNumber; ?>&accDisp=<?php echo $displayAccountNumber;?>">
+                                                              </div>
+                                                          </form>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                          <?php
+                                                          if (sizeof(${'listOfDomainsAccount' . $accountNumber}) == 0) {
+                                                              echo '<button type="button" class="btn btn-danger" onclick="$(\'.loading_overlay_modal\').css(\'visibility\', \'visible\'); $(\'#removeAccountForm\').submit(); return false;">Remove Hosting Account</button>';
+                                                          }
+                                                          ?>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </td>
+                                  </tr>
+                                  <?php
+                                  if (${'accStatus' . $accountNumber} == "D") {
+                                      echo "<tr>";
+                                      echo '<td class="text-center" colspan="2">';
+                                      echo '<form class="d-none" action="./api/reactivateAccount.php" method="post" id="reactivateAccountForm">';
+                                      echo '<div class="form-group invisible">';
+                                      echo '<input type="text" class="invisible" id="reactivateAccountID" name="accountID" value="' . ${'ultifreeID' . $accountNumber} . '">';
+                                      echo '<input type="text" class="invisible" id="reactivateAccountReturnDomain" name="returnDomain" value="?acc=' . $accountNumber . '&accDisp=' . $displayAccountNumber . '">';
+                                      echo '</div>';
+                                      echo '</form>';
+                                      echo '<button class="btn btn-round btn-success btn-block" onclick="$(\'.loading_overlay\').css(\'visibility\', \'visible\'); $(\'#reactivateAccountForm\').submit();"><i class="nc-icon nc-check"></i> Reactivate Hosting Account</a>';
+                                      echo '</td>';
+                                      echo '</tr>';
+                                  }
+                                  ?>
+                                  <tr>
+                                      <td class="text-center" colspan="2">
+                                          <a href="upgrade.php" class="btn btn-round btn-premium btn-block"  onclick="PremiumEvent('Dashboard Host Account', 'Premium CTA');"><i class="nc-icon nc-diamond"></i> Upgrade to Premium</a>
+                                      </td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+
+                      <div class="card ">
+                          <div class="card-body ">
+                              <table class="table table-responsive-sm">
+                                  <thead class="text-primary">
+                                  <th colspan="2" class="text-center">
+                                      Website Builder
+                                  </th>
+                                  </thead>
+                                  <tbody>
+                                  <?php
+                                  if (${'accStatus' . $accountNumber} == "P") {
+                                      echo "<tr>";
+                                      echo "<td colspan='2' class='text-center'>";
+                                      echo "Website builder unavailable yet, please wait until processing is completed.";
+                                      echo "</td>";
+                                      echo "</tr>";
+                                  } else if (${'accStatus' . $accountNumber} == "S" || ${'accStatus' . $accountNumber} == "D") {
+                                      echo "<tr>";
+                                      echo "<td colspan='2' class='text-center'>";
+                                      echo "Website builder unavailable on this hosting account.";
+                                      echo "</td>";
+                                      echo "</tr>";
+                                  } else if (in_array("Error fetching domains, please try again later.", ${'listOfDomainsAccount' . $accountNumber})) {
+                                      echo "<tr>";
+                                      echo "<td colspan='2' class='text-center'>";
+                                      echo "Error fetching domains, please try again later.";
+                                      echo "</td>";
+                                      echo "</tr>";
+                                  } else if (sizeof(${'listOfDomainsAccount' . $accountNumber}) > 0) {
+                                      foreach (${'listOfDomainsAccount' . $accountNumber} as $domain) {
+                                          echo "<tr>";
+                                          echo "<td class='text-center'>";
+                                          echo '<a target="_blank" href="http://www.' . $domain .'">' . $domain . '</a>';
+                                          echo "</td>";
+                                          echo "<td class='text-center'>";
+                                          echo "<form method='post' target='_blank' action='./api/generateSiteProLink.php'>";
+                                          echo '<div class="form-group d-none">';
+                                          echo '<input type="text" class="invisible" name="domainToEdit" value="' . $domain . '">';
+                                          echo '<input type="text" class="invisible" name="ftpUser" value="' . ${'accUsername' . $accountNumber} . '">';
+                                          echo '<input type="text" class="invisible" name="ftpPass" value="' . ${'accPassword' . $accountNumber} . '">';
+                                          echo '</div>';
+                                          echo '<input type="submit" class="btn btn-primary" value="Edit Website" />';
+                                          echo "</form>";
+                                          echo "</td>";
+                                          echo "</tr>";
+                                      }
+                                  } else {
+                                      echo "<tr>";
+                                      echo "<td colspan='2' class='text-center'>";
+                                      echo "No (Sub-) Domains :(";
+                                      echo "</td>";
+                                      echo "</tr>";
+                                  }
+                                  ?>
+                                  </tbody>
+                              </table>
+                              <div class="alert alert-with-icon alert-info">
+                                  <span data-notify="icon" class="nc-icon nc-alert-circle-i"></span>
+                                  <span>Make sure to open the control panel at least once before using this feature!</span>
+                              </div>
+                              <div class="alert alert-with-icon alert-warning">
+                                  <span data-notify="icon" class="nc-icon nc-alert-circle-i"></span>
+                                  <span class="text-dark">Warning: Using this may modify your FTP files!</span>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="card ">
                       <div class="card-body ">
                       <table class="table table-responsive-sm">
                         <thead class="text-primary">
@@ -366,307 +668,8 @@
                       </div>
                     </div>
 
-                      <div class="card ">
-                          <div class="card-body ">
-                              <table class="table table-responsive-sm">
-                                  <thead class="text-primary">
-                                  <th colspan="2" class="text-center">
-                                      Website Builder
-                                  </th>
-                                  </thead>
-                                  <tbody>
-                                  <?php
-                                  if (${'accStatus' . $accountNumber} == "P") {
-                                      echo "<tr>";
-                                      echo "<td colspan='2' class='text-center'>";
-                                      echo "Website builder unavailable yet, please wait until processing is completed.";
-                                      echo "</td>";
-                                      echo "</tr>";
-                                  } else if (${'accStatus' . $accountNumber} == "S" || ${'accStatus' . $accountNumber} == "D") {
-                                      echo "<tr>";
-                                      echo "<td colspan='2' class='text-center'>";
-                                      echo "Website builder unavailable on this hosting account.";
-                                      echo "</td>";
-                                      echo "</tr>";
-                                  } else if (in_array("Error fetching domains, please try again later.", ${'listOfDomainsAccount' . $accountNumber})) {
-                                      echo "<tr>";
-                                      echo "<td colspan='2' class='text-center'>";
-                                      echo "Error fetching domains, please try again later.";
-                                      echo "</td>";
-                                      echo "</tr>";
-                                  } else if (sizeof(${'listOfDomainsAccount' . $accountNumber}) > 0) {
-                                      foreach (${'listOfDomainsAccount' . $accountNumber} as $domain) {
-                                          echo "<tr>";
-                                              echo "<td class='text-center'>";
-                                                echo '<a target="_blank" href="http://www.' . $domain .'">' . $domain . '</a>';
-                                              echo "</td>";
-                                              echo "<td class='text-center'>";
-                                                echo "<form method='post' target='_blank' action='./api/generateSiteProLink.php'>";
-                                                    echo '<div class="form-group d-none">';
-                                                        echo '<input type="text" class="invisible" name="domainToEdit" value="' . $domain . '">';
-                                                        echo '<input type="text" class="invisible" name="ftpUser" value="' . ${'accUsername' . $accountNumber} . '">';
-                                                        echo '<input type="text" class="invisible" name="ftpPass" value="' . ${'accPassword' . $accountNumber} . '">';
-                                                    echo '</div>';
-                                                    echo '<input type="submit" class="btn btn-primary" value="Edit Website" />';
-                                                echo "</form>";
-                                              echo "</td>";
-                                          echo "</tr>";
-                                      }
-                                  } else {
-                                      echo "<tr>";
-                                      echo "<td colspan='2' class='text-center'>";
-                                      echo "No (Sub-) Domains :(";
-                                      echo "</td>";
-                                      echo "</tr>";
-                                  }
-                                  ?>
-                                  </tbody>
-                              </table>
-                              <div class="alert alert-with-icon alert-info">
-                                  <span data-notify="icon" class="nc-icon nc-alert-circle-i"></span>
-                                  <span>Make sure to open the control panel at least once before using this feature!</span>
-                              </div>
-                              <div class="alert alert-with-icon alert-warning">
-                                  <span data-notify="icon" class="nc-icon nc-alert-circle-i"></span>
-                                  <span class="text-dark">Warning: Using this may modify your FTP files!</span>
-                              </div>
-                          </div>
-                      </div>
-
-                <div class="card">
-                        <!-- Loading Screen -->
-                        <div class="loading_overlay text-center text-primary">
-                            <div class="spinner-grow" style="width: 5rem; height: 5rem;" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                        </div>
-                        <!-- Loading Screen End -->
-                      <div class="card-body">
-                          <table class="table-responsive-sm w-100">
-                              <thead>
-                              <th colspan="2" class="text-center">
-                                  Account Controls:
-                              </th>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <td class="text-center">
-                                      <?php
-                                      // Create the control panel login form
-                                      if (${'accStatus' . $accountNumber} == "A" || ${'accStatus' . $accountNumber} == "S") {
-                                          echo '<form target="_blank" action="https://cpanel.ultihost.net/login.php" method="post" name="login">';
-                                      } else {
-                                          echo '<form action="#disabled" name="login">';
-                                      }
-                                      echo '<label for="mod_login_username" class="collapse input"><span>Username</span><input name="uname" id="mod_login_username" type="text" class="inputbox" alt="username" value="' . ${'accUsername' . $accountNumber} . '"/></label>';
-                                      echo '<label for="mod_login_password" class="collapse input"><span>Password</span><input type="password" id="mod_login_password" name="passwd" class="inputbox" alt="password" value="' . ${'accPassword' . $accountNumber} . '"/></label>';
-                                      if (${'accStatus' . $accountNumber} == "A" || ${'accStatus' . $accountNumber} == "S") {
-                                          echo '<a onclick="this.closest(\'form\').submit(); return false;" class="btn btn-round btn-success btn-block text-white"><i class="nc-icon nc-badge"></i> Control Panel</a>';
-                                      } else {
-                                          echo '<a href="#" class="btn btn-round btn-success btn-block disabled"><i class="nc-icon nc-badge"></i> Control Panel</a>';
-                                      }
-                                      echo '</form>';
-                                      ?>
-                                  </td>
-                                  <td class="text-center pl-2">
-                                      <?php
-                                      // Create the FTP button -> Generate URL
-                                      if (${'accStatus' . $accountNumber} == "A") {
-                                          $encoded_ftp_url = base64_encode('{"t":"ftp","c":{"p":"' . ${'accPassword' . $accountNumber} . '","i":"\/"}}');
-                                          $ftp_url = "https://filemanager.ai/new/#/c/185.27.134.11/" . ${'accUsername' .  $accountNumber} . "/" . $encoded_ftp_url;
-                                          echo '<a href="' . $ftp_url . '" target="_BLANK" class="btn btn-round btn-warning btn-block"><i class="nc-icon nc-image"></i> File Manager</a>';
-                                      } else {
-                                          echo '<a href="#" class="btn btn-round btn-warning btn-block disabled"><i class="nc-icon nc-image"></i> File Manager</a>';
-                                      }
-                                      ?>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td class="text-center">
-                                      <?php
-                                      if (${'accStatus' . $accountNumber} == "A") {
-                                          echo '<a href="#" class="btn btn-round btn-default btn-block" data-toggle="modal" data-target="#changePasswordModal"><i class="nc-icon nc-key-25"></i> Change Password</a>';
-                                      } else {
-                                          echo '<a href="#" class="btn btn-round btn-default btn-block disabled"><i class="nc-icon nc-key-25"></i> Change Password</a>';
-                                      }
-                                      ?>
-
-
-                                      <!-- Modal for Changing Password -->
-                                      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="Change Password" aria-hidden="true">
-                                          <div class="modal-dialog modal-dialog-centered" role="document">
-                                              <div class="modal-content">
-                                                  <!-- Loading Screen -->
-                                                  <div class="loading_overlay_modal text-center text-primary">
-                                                      <div class="spinner-grow" style="width: 5rem; height: 5rem;" role="status">
-                                                          <span class="sr-only">Loading...</span>
-                                                      </div>
-                                                  </div>
-                                                  <!-- Loading Screen End -->
-                                                  <div class="modal-header">
-                                                      <h5 class="modal-title" id="changePasswordModalTitle">Change Password</h5>
-                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                          <span aria-hidden="true">&times;</span>
-                                                      </button>
-                                                  </div>
-                                                  <div class="modal-body">
-                                                      <form action="./api/changePassword.php" method="post" id="changePasswordForm">
-                                                          <div class="form-group">
-                                                              <label for="changePasswordInput">New Password:</label>
-                                                              <input type="text" class="form-control" id="changePasswordInput" name="newPassword" required value="<?php echo ${'accPassword' . $accountNumber}; ?>">
-                                                              <input type="text" class="invisible" id="changePasswordAccount" name="ultifreeID" value="<?php echo ${'ultifreeID' . $accountNumber}; ?>">
-                                                              <input type="text" class="invisible" id="changePasswordReturnDomain" name="returnDomain" value="?acc=<?php echo $accountNumber; ?>&accDisp=<?php echo $displayAccountNumber;?>">
-                                                          </div>
-                                                      </form>
-                                                      <div id="changePasswordInfoError" class="alert alert-danger">
-                                                          <span>Sorry, this password is invalid!</span>
-                                                      </div>
-                                                      <div id="changePasswordInfoSuccess" class="alert alert-success">
-                                                          <span>Password is valid, you can change it now!</span>
-                                                      </div>
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                      <button type="button" id="changePasswordFormSubmitButton" class="btn btn-primary" onclick="$('.loading_overlay_modal').css('visibility', 'visible'); $('#changePasswordForm').submit(); return false;">Change Password</button>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  <td class="text-center  pl-2">
-                                      <a href="#" class="btn btn-round btn-default btn-block" data-toggle="modal" data-target="#changeLabelModal"><i class="nc-icon nc-paper"></i> Change Label</a>
-
-                                      <!-- Modal for Changing Label -->
-                                      <div class="modal fade" id="changeLabelModal" tabindex="-1" role="dialog" aria-labelledby="Change Label" aria-hidden="true">
-                                          <div class="modal-dialog modal-dialog-centered" role="document">
-                                              <div class="modal-content">
-                                                  <!-- Loading Screen -->
-                                                  <div class="loading_overlay_modal text-center text-primary">
-                                                      <div class="spinner-grow" style="width: 5rem; height: 5rem;" role="status">
-                                                          <span class="sr-only">Loading...</span>
-                                                      </div>
-                                                  </div>
-                                                  <!-- Loading Screen End -->
-                                                  <div class="modal-header">
-                                                      <h5 class="modal-title" id="changeLabelModalTitle">Change Label</h5>
-                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                          <span aria-hidden="true">&times;</span>
-                                                      </button>
-                                                  </div>
-                                                  <div class="modal-body">
-                                                      <form action="./api/changeLabel.php" method="post" id="changeLabelForm">
-                                                          <div class="form-group">
-                                                              <label for="changeLabelInput">New Label:</label>
-                                                              <input type="text" minlength="1" class="form-control" id="changeLabelInput" name="newLabel" value="<?php echo ${'accLabel' . $accountNumber}; ?>">
-                                                              <input type="text" class="invisible" id="changeLabelAccount" name="accountID" value="<?php echo ${'accountID' . $accountNumber}; ?>">
-                                                              <input type="text" class="invisible" id="changeLabelReturnDomain" name="returnDomain" value="?acc=<?php echo $accountNumber; ?>&accDisp=<?php echo $displayAccountNumber;?>">
-                                                          </div>
-                                                      </form>
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                      <button type="button" class="btn btn-primary" onclick="$('.loading_overlay_modal').css('visibility', 'visible'); $('#changeLabelForm').submit(); return false;">Change Label</button>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td class="text-center">
-                                      <a href="deactivations.php?acc=<?php echo $accountNumber; ?>" class="btn btn-round btn-default btn-block" data-toggle="tooltip" data-placement="left" title="Find out why your account got suspended"><i class="nc-icon nc-lock-circle-open"></i> Deactivation History</a>
-                                  </td>
-                                  <td class="text-center  pl-2">
-                                      <?php
-                                      if (${'accStatus' . $accountNumber} == "A") {
-                                          echo '<a href="#" class="btn btn-round btn-danger btn-block" data-toggle="modal" data-target="#removeHostingAccountModal"><i class="nc-icon nc-simple-remove"></i> Remove Hosting Account</a>';
-                                      } else {
-                                          echo '<a href="#" class="btn btn-round btn-danger btn-block disabled"><i class="nc-icon nc-simple-remove"></i> Remove Hosting Account</a>';
-                                      }
-                                      ?>
-
-                                      <!-- Modal for Removing Hosting Account -->
-                                      <div class="modal fade" id="removeHostingAccountModal" tabindex="-1" role="dialog" aria-labelledby="Remove Hosting Account" aria-hidden="true">
-                                          <div class="modal-dialog modal-dialog-centered" role="document">
-                                              <div class="modal-content">
-                                                  <!-- Loading Screen -->
-                                                  <div class="loading_overlay_modal text-center text-primary">
-                                                      <div class="spinner-grow" style="width: 5rem; height: 5rem;" role="status">
-                                                          <span class="sr-only">Loading...</span>
-                                                      </div>
-                                                  </div>
-                                                  <!-- Loading Screen End -->
-                                                  <div class="modal-header">
-                                                      <h5 class="modal-title" id="removeHostingAccountModalTitle">Delete Hosting Account</h5>
-                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                          <span aria-hidden="true">&times;</span>
-                                                      </button>
-                                                  </div>
-                                                  <div class="modal-body text-left">
-                                                      <p>
-                                                          This will disable your website and control panel. The contents of your website will be kept for 60 days, and will then be automatically deleted. You can reactivate your account at any time during these 60 days.
-                                                      </p>
-                                                      <p class="text-danger">
-                                                          <?php
-                                                          if (sizeof(${'listOfDomainsAccount' . $accountNumber}) > 0) {
-                                                              echo "Before being able to delete your account please remove the following domains from your account: <br>";
-                                                              foreach (${'listOfDomainsAccount' . $accountNumber} as $domain) {
-                                                                  echo "<br> - " . $domain . "<br>";
-                                                              }
-                                                              echo "<br> To remove the domains open your control panel, click on 'Addon Domains', remove all domains there, then try clicking this button again!";
-                                                          } else {
-                                                              echo "<br> Would you like to continue?";
-                                                          }
-                                                          ?>
-                                                      </p>
-                                                      <form class="d-none" action="./api/removeAccount.php" method="post" id="removeAccountForm">
-                                                          <div class="form-group invisible">
-                                                              <input type="text" class="invisible" id="removeAccountID" name="accountID" value="<?php echo ${'ultifreeID' . $accountNumber}; ?>">
-                                                              <input type="text" class="invisible" id="removeAccountReturnDomain" name="returnDomain" value="?acc=<?php echo $accountNumber; ?>&accDisp=<?php echo $displayAccountNumber;?>">
-                                                          </div>
-                                                      </form>
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                      <?php
-                                                      if (sizeof(${'listOfDomainsAccount' . $accountNumber}) == 0) {
-                                                          echo '<button type="button" class="btn btn-danger" onclick="$(\'.loading_overlay_modal\').css(\'visibility\', \'visible\'); $(\'#removeAccountForm\').submit(); return false;">Remove Hosting Account</button>';
-                                                      }
-                                                      ?>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                              </tr>
-                              <?php
-                                if (${'accStatus' . $accountNumber} == "D") {
-                                     echo "<tr>";
-                                        echo '<td class="text-center" colspan="2">';
-                                            echo '<form class="d-none" action="./api/reactivateAccount.php" method="post" id="reactivateAccountForm">';
-                                                echo '<div class="form-group invisible">';
-                                                  echo '<input type="text" class="invisible" id="reactivateAccountID" name="accountID" value="' . ${'ultifreeID' . $accountNumber} . '">';
-                                                  echo '<input type="text" class="invisible" id="reactivateAccountReturnDomain" name="returnDomain" value="?acc=' . $accountNumber . '&accDisp=' . $displayAccountNumber . '">';
-                                                echo '</div>';
-                                            echo '</form>';
-                                          echo '<button class="btn btn-round btn-success btn-block" onclick="$(\'.loading_overlay\').css(\'visibility\', \'visible\'); $(\'#reactivateAccountForm\').submit();"><i class="nc-icon nc-check"></i> Reactivate Hosting Account</a>';
-                                      echo '</td>';
-                                    echo '</tr>';
-                                }
-                              ?>
-                              <tr>
-                                  <td class="text-center" colspan="2">
-                                      <a href="upgrade.php" class="btn btn-round btn-premium btn-block"  onclick="PremiumEvent('Dashboard Host Account', 'Premium CTA');"><i class="nc-icon nc-diamond"></i> Upgrade to Premium</a>
-                                  </td>
-                              </tr>
-                              </tbody>
-                          </table>
-                      </div>
                   </div>
-
-                </div>
-            </div>
+              </div>
 
               <div class="row">
                   <div class="col-12">
