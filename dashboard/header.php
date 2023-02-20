@@ -33,7 +33,7 @@
             if ($accountID1 != NULL) {
               echo "<li>";
                 echo '<a href="hostAccount.php?acc=1&accDisp=' . $accountDisplayNumberValue .'">';
-                  $shortenedLabel = substr($accLabel1, 0, min(20, strlen($accLabel1)));
+                  $shortenedLabel = substr($accLabel1, 0, min(15, strlen($accLabel1)));
                   echo "Account #$accountDisplayNumberValue - $shortenedLabel";
                 echo '</a>';
               echo '</li>';
@@ -43,7 +43,7 @@
             if ($accountID2 != NULL) {
               echo "<li>";
                 echo '<a href="hostAccount.php?acc=2&accDisp=' . $accountDisplayNumberValue .'">';
-                  $shortenedLabel = substr($accLabel2, 0, min(20, strlen($accLabel2)));
+                  $shortenedLabel = substr($accLabel2, 0, min(15, strlen($accLabel2)));
                   echo "Account #$accountDisplayNumberValue - $shortenedLabel";
                 echo '</a>';
               echo '</li>';
@@ -53,7 +53,7 @@
             if ($accountID3 != NULL) {
               echo "<li>";
                 echo '<a href="hostAccount.php?acc=3&accDisp=' . $accountDisplayNumberValue .'">';
-                  $shortenedLabel = substr($accLabel3, 0, min(20, strlen($accLabel3)));
+                  $shortenedLabel = substr($accLabel3, 0, min(15, strlen($accLabel3)));
                   echo "Account #$accountDisplayNumberValue - $shortenedLabel";
                 echo '</a>';
               echo '</li>';
