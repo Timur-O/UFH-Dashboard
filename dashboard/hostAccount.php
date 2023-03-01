@@ -245,7 +245,7 @@
                                   <tr>
                                       <th>Hostname:</th>
                                       <td>
-                                          ftpupload.net
+                                          ftp.ultihost.net
                                       </td>
                                   </tr>
 
