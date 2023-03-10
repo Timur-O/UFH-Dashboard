@@ -385,7 +385,7 @@ function checkDomain (url) {
                             // Check that length is between 3 and 39 characters
                             if ((furl.length >= 3) && (furl.length <= 39)) {
                                 // Check that it only contains letters and numbers
-                                if (furl.match(/[^A-Za-z0-9]/) === null) {
+                                if (furl.match(/[^A-Za-z0-9-]/) === null) {
                                     // Check if email is verified
                                     if (emailVerified) {
                                         // Check that the numberOfAccounts is < 3
@@ -405,7 +405,7 @@ function checkDomain (url) {
                                         errMessage = "Please verify your email to create a hosting account.";
                                     }
                                 } else {
-                                    errMessage = "Sorry, your chosen domain contains illegal characters. Only letters a-z and numbers are allowed.";
+                                    errMessage = "Sorry, your chosen domain contains illegal characters. Only letters a-z, hyphens ('-'), and numbers are allowed.";
                                 }
                             } else {
                                 errMessage = "The domain must be between 3 and 39 characters.";
