@@ -103,7 +103,7 @@
                     <tbody>
                       <tr>
                         <td>Disk Space</td>
-                        <td class="text-center">Unlimited</td>
+                        <td class="text-center">5 GB</td>
                         <td class="text-center">5 GB</td>
                         <td class="text-center">Unlimited</td>
                         <td class="text-center">Unlimited</td>
