@@ -221,7 +221,7 @@
                                     ';
                                     echo '<p class="text-center"><a href="login.php">Nevermind, I changed my mind!</a></p>';
                                 } else if ($dbError) {
-                                    echo '<p class="text-center text-danger">Something went wrong. Please try again. If this issue persists, contact support.</p>';
+                                    echo '<p class="text-center text-danger">Something went wrong. Please try again.</p>';
                                     echo '<p class="text-center"><a href="forgotpassword.php">Try again!</a></p>';
                                 } else {
                                     echo '<p class="text-center text-danger">The password reset link is expired. Please try again.</p>';

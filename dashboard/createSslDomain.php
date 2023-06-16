@@ -150,7 +150,7 @@
                     <?php
                         if ($domainInvalid) {
                             echo '<div id="domainError" class="alert alert-danger">';
-                                echo '<span class="text-dark">This domain is invalid. If you believe this is an error, please contact support.</span>';
+                                echo '<span class="text-dark">This domain is invalid.</span>';
                             echo '</div>';
                         }
                     ?>

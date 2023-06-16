@@ -341,7 +341,7 @@ function checkSubDomain(firstPart) {
                                     return "valid";
                                 } else {
                                     BannedPhraseEvent(firstPart);
-                                    errMessage = "This domain contains a banned phrase, please consider a different option. If you believe you require an exception please contact support.";
+                                    errMessage = "This domain contains a banned phrase, please consider a different option.";
                                 }
                             } else {
                                 errMessage = "You cannot have more than 3 hosting accounts at a time.";
@@ -396,7 +396,7 @@ function checkDomain (url) {
                                                 return "valid";
                                             } else {
                                                 BannedPhraseEvent(furl);
-                                                errMessage = "This domain contains a banned phrase, please consider a different option. If you believe you require an exception please contact support.";
+                                                errMessage = "This domain contains a banned phrase, please consider a different option.";
                                             }
                                         } else {
                                             errMessage = "You cannot have more than 3 hosting accounts at a time.";

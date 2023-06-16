@@ -49,7 +49,7 @@
                         <div class="card-body ">
                             <h4 class="text-center text-danger">Oops, something went wrong!</h4>
                             <p class="text-center">
-                                Please try again. If this issue persists please contact support and provide them with the following information:
+                                Please try again.
                             </p>
                             <ul>
                                 <li>Error Code: <?php echo $_GET['errorCode']; ?></li>

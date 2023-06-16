@@ -21,16 +21,16 @@ hotjarScript.text = "(function(h,o,t,j,a,r){\n" +
 head.appendChild(hotjarScript);
 
 // Insert Crisp Chat Box (Makes Cookies)
-let crispScript = document.createElement("script");
-crispScript.type = "text/javascript";
-crispScript.text = 'window.$crisp=[];' +
-    'window.CRISP_WEBSITE_ID="876c3034-7c27-42dd-825a-98eadeb85171";' +
-    '(function(){d=document;s=d.createElement("script");' +
-    's.src="https://client.crisp.chat/l.js";' +
-    's.async=1;' +
-    'd.getElementsByTagName("head")[0].appendChild(s);})();' +
-    '$crisp.push(["safe", true]);';
-head.appendChild(crispScript);
+// let crispScript = document.createElement("script");
+// crispScript.type = "text/javascript";
+// crispScript.text = 'window.$crisp=[];' +
+//     'window.CRISP_WEBSITE_ID="876c3034-7c27-42dd-825a-98eadeb85171";' +
+//     '(function(){d=document;s=d.createElement("script");' +
+//     's.src="https://client.crisp.chat/l.js";' +
+//     's.async=1;' +
+//     'd.getElementsByTagName("head")[0].appendChild(s);})();' +
+//     '$crisp.push(["safe", true]);';
+// head.appendChild(crispScript);
 
 // Import Google Analytics (Makes Cookies)
 let googleAnalyticsScript = document.createElement("script");
