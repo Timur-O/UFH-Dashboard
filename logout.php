@@ -1,12 +1,16 @@
 <?php
+    /**
+     * @var string $googleClientId the client id for Google authentication
+     * @var string $googleClientSecret the client secret for Google authentication
+     */
     require_once 'vendor/autoload.php';
     //Google Social Logout
     //Make object of Google API Client for call Google API
     $google_client = new Google_Client();
     //Set the OAuth 2.0 Client ID
-    $google_client->setClientId('***REMOVED***');
+    $google_client->setClientId($googleClientId);
     //Set the OAuth 2.0 Client Secret key
-    $google_client->setClientSecret('***REMOVED***');
+    $google_client->setClientSecret($googleClientSecret);
     //Set the OAuth 2.0 Redirect URI
     $google_client->setRedirectUri('https://ultifreehosting.com/sociallogin.php');
     $google_client->addScope('email');

@@ -9,15 +9,17 @@
      * @var string $password The Password of MySQL Server
      * @var string $dbname The DB Name of MySQL Server
      * @var mysqli $conn The DB Connection Object
+     * @var string $googleClientId the client id for Google authentication
+     * @var string $googleClientSecret the client secret for Google authentication
      */
     require_once '../dashboard/api/settings.php';
 
     $backup_name = "uf_db_backup.sql";
     $tables = array("accounts", "ads", "affiliates", "announcements", "backup", "callbacks", "clients", "conversions", "errors", "payouts", "suspensions");
 
-    Export_Database($conn, $tables=false, $backup_name=false);
+    Export_Database($conn, $googleClientId, $googleClientSecret, $tables=false, $backup_name=false);
 
-    function Export_Database($conn, $tables=false, $backup_name=false) {
+    function Export_Database($conn, $googleClientId, $googleClientSecret, $tables=false, $backup_name=false) {
         $conn->query("SET NAMES 'utf8'");
 
         $queryTables = $conn->query('SHOW TABLES');
@@ -70,16 +72,16 @@
         $backup_name = "../backup/uf_db_backup.sql";
         file_put_contents($backup_name, $content);
 
-        uploadToDrive($conn, $backup_name);
+        uploadToDrive($conn, $googleClientId, $googleClientSecret, $backup_name);
     }
 
-    function uploadToDrive($conn, $name) {
+    function uploadToDrive($conn, $googleClientId, $googleClientSecret, $name) {
         //Make object of Google API Client for call Google API
         $google_client = new Google_Client();
         //Set the OAuth 2.0 Client ID
-        $google_client->setClientId('***REMOVED***');
+        $google_client->setClientId($googleClientId);
         //Set the OAuth 2.0 Client Secret key
-        $google_client->setClientSecret('***REMOVED***');
+        $google_client->setClientSecret($googleClientSecret);
         //Set redirect to self
         $redirect = filter_var('https://app.ultifreehosting.com' . $_SERVER['PHP_SELF'],
             FILTER_SANITIZE_URL);
