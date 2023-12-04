@@ -36,7 +36,7 @@
                     'lang' => 'en',
                     'username' => $ftpUsername,	// FTP Username
                     'password' => $ftpPassword,	// FTP Password
-                    'apiUrl' => 'ftp.ultihost.net',			            // FTP Hostname
+                    'apiUrl' => 'ftp.great-blog.xyz',			        // FTP Hostname
                     'uploadDir' => $shortHomeDirectory,	                // FTP Directory
                     'panel' => 'Ultifree Hosting Panel'
                 ));

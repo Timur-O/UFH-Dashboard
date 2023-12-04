@@ -136,7 +136,6 @@
                                         <option value="great-blog.xyz" selected>great-blog.xyz</option>
                                         <option value="uf.uk.eu.org">uf.uk.eu.org</option>
                                         <option value="ulti.eu.org">ulti.eu.org</option>
-                                        <option value="ultihost.net">ultihost.net</option>
                                       </select>
                                     </div>
                                   </div>

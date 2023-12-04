@@ -245,7 +245,7 @@
                                   <tr>
                                       <th>Hostname:</th>
                                       <td>
-                                          ftp.ultihost.net
+                                          ftp.great-blog.xyz
                                       </td>
                                   </tr>
 
@@ -327,7 +327,7 @@
                                           <?php
                                           // Create the control panel login form
                                           if (${'accStatus' . $accountNumber} == "A" || ${'accStatus' . $accountNumber} == "S") {
-                                              echo '<form target="_blank" action="https://cpanel.ultihost.net/login.php" method="post" name="login">';
+                                              echo '<form target="_blank" action="http://cpanel.great-blog.xyz/login.php" method="post" name="login">';
                                           } else {
                                               echo '<form action="#disabled" name="login">';
                                           }
@@ -644,7 +644,7 @@
                                 if (${'accStatus' . $accountNumber} == "P") {
                                     echo "Available once processing is completed.";
                                 } else {
-                                    echo ${'accSQLServer' . $accountNumber} . ".ultihost.net";
+                                    echo ${'accSQLServer' . $accountNumber} . ".great-blog.xyz";
                                 }
                             ?>
                             </td>
